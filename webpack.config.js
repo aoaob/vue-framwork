@@ -33,8 +33,7 @@ module.exports = {
   // devtool: 'source-map',
   entry: {
     'vendor': ['jquery', 'bootstrap', 'bootstrap/dist/css/bootstrap.min.css'],
-    'index':'./src/index.js',
-    '01': "./src/js/01/main.js"
+    'index': './src/index.js',
   },
   output: {
     filename: 'TemplateStyle/js/[name].js?[hash:8]',
@@ -168,9 +167,10 @@ module.exports = {
       title: "首页",
       chunks: ['vendor', 'index'], // 按需引入对应名字的js文件
       template: "./src/index.html",
-      hash: true
+      hash: true,
+      inject: true,
+      favicon: './src/favicon.ico'
     }),
-    new htmlWebpackPlugin(getHtmlConfig('./src/views/01/', 'main', '首页')),
   ],
   optimization: {
     splitChunks: {
