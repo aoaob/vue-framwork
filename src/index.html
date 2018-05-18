@@ -1,12 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="borderbox">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <!--[if lt IE 9]>
+  <link href="TemplateStyle/nosupport/nosupport.css" rel="stylesheet" />
+  <![endif]-->
 </head>
+
 <body>
-  <div id="app"></div>
+  <template id="app"></template>
+  <div class="upgrad-tips" id="upgradepage" style="display: none">
+    <div class="qq_conent">
+      <div class="nt-pic"></div>
+      <div class="nt-txt">
+        为了您的最佳体验，我们于即日起停止对IE8及以下版本浏览器的支持请您升级IE或使用其他浏览器，
+        如果您的使用的是双核浏览器(搜狗，360，QQ)，请切换到极速模式访问
+      </div>
+      <div class="nt-link">
+        <a class="icon-ie" title="更新ie浏览器" href="//support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads">
+          <i></i>升级IE</a>&nbsp;
+        <a class="icon-chrome" title="下载chrome(谷歌)浏览器" href="//www.google.cn/chrome/">
+          <i></i>下载Chrome(谷歌)</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    if (!!Array.prototype.map == false) {
+      document.getElementById("upgradepage").style.display = "block"
+    }
+  </script>
 </body>
 </html>
