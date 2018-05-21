@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" class="borderbox">
+<html lang="zh-cn" class="borderbox">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>@Model.Title</title>
   <!--[if lt IE 9]>
-  <link href="TemplateStyle/nosupport/nosupport.css" rel="stylesheet" />
+  <link href="/Viewts-yiban-style/nosupport/nosupport.css" rel="stylesheet" />
   <![endif]-->
+  <% if (htmlWebpackPlugin.files.favicon) { %>
+    <link rel="shortcut icon" href="<%= htmlWebpackPlugin.files.favicon%>">
+    <% } %>
+      <% for (var css in htmlWebpackPlugin.files.css) { %>
+        <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+        <% } %>
 </head>
 
-<body>
+<body class="@(Model.IsHome?'': 'NoHome')">
   <template id="app"></template>
   <div class="upgrad-tips" id="upgradepage" style="display: none">
     <div class="qq_conent">
       <div class="nt-pic"></div>
       <div class="nt-txt">
-        为了您的最佳体验，我们于即日起停止对IE8及以下版本浏览器的支持请您升级IE或使用其他浏览器，
-        如果您的使用的是双核浏览器(搜狗，360，QQ)，请切换到极速模式访问
+        为了您的最佳体验，我们于即日起停止对IE8及以下版本浏览器的支持请您升级IE或使用其他浏览器， 如果您的使用的是双核浏览器(搜狗，360，QQ)，请切换到极速模式访问
       </div>
       <div class="nt-link">
         <a class="icon-ie" title="更新ie浏览器" href="//support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads">
@@ -30,8 +35,150 @@
   </div>
   <script>
     if (!!Array.prototype.map == false) {
-      document.getElementById("upgradepage").style.display = "block"
+      document.getElementById('upgradepage').style.display = 'block'
     }
   </script>
+  <script>
+    var _site = {
+      SystemTitle: "华一建站",
+      IsAuthenticated: true,
+      IsHome: true,
+      IsAdmin: true,
+      logoffUrl: "/Account/LogOff",
+      loginUrl: "/Account/Login",
+      RemoteCutImgUrl: "http://photo.nfwin.com/",
+      CurrentUserInfo: {
+        Claims: [],
+        Logins: [],
+        Organization: '',
+        Roles: [
+          {
+            UserId: 1,
+            RoleId: 1
+          }
+        ],
+        UserImg: '',
+        UserTrueName: '',
+        UserShoucang: '',
+        UserSex: '',
+        PowerIds: '',
+        Token: '',
+        TokenDatetime: '',
+        LastLoginTime: '',
+        UserTags: '',
+        OAuthToken: '',
+        OAuthTokenDatetime: '',
+        VipStartDatetime: '',
+        VipEndDatetime: '',
+        UnionId: '',
+        OpenId: '',
+        UserJifen: 0,
+        yb_userid: 0,
+        yb_money: 0,
+        yb_exp: 0,
+        organizationId: '',
+        Email: "58004373@qq.com",
+        EmailConfirmed: false,
+        PasswordHash: "AKGCvc57sSij0EvJXWl39zVCv1/XBxI5DSzsJHyUkAPKIkYFGO5KmCn7pnJ3KBJOLQ==",
+        SecurityStamp: "e05f91c3-bce1-4c76-bf21-e3cac57fa28f",
+        PhoneNumber: '',
+        PhoneNumberConfirmed: false,
+        TwoFactorEnabled: false,
+        LockoutEndDateUtc: '',
+        LockoutEnabled: false,
+        AccessFailedCount: 0,
+        Id: 1,
+        UserName: "admin"
+      }
+    };
+    var _lists = [
+      {
+        img: "http://img02.fs.yiban.cn/13875582/avatar/user/200",
+        name: " 渤海大学 ",
+        url: "http://www.yiban.cn/school/index/id/13875582"
+      },
+      {
+        img: "http://img02.fs.yiban.cn/13556568/avatar/user/200",
+        name: " 沈阳建筑大学 ",
+        url: "http://www.yiban.cn/school/index/id/13556568"
+      },
+      {
+        img: "http://img02.fs.yiban.cn/13875430/avatar/user/200",
+        name: " 沈阳航空航天大学 ",
+        url: "http://www.yiban.cn/school/index/id/13875430"
+      },
+      {
+        img: "http://img02.fs.yiban.cn/13771076/avatar/user/200",
+        name: " 锦州医科大学 ",
+        url: "http://www.yiban.cn/school/index/id/13771076"
+      },
+      {
+        img: "http://img02.fs.yiban.cn/5387476/avatar/user/200",
+        name: " 中国医科大学 ",
+        url: "http://www.yiban.cn/school/index/id/5387476"
+      },
+      {
+        img: "http://img02.fs.yiban.cn/13875412/avatar/user/200",
+        name: " 沈阳农业大学 ",
+        url: "http://www.yiban.cn/school/index/id/13875412"
+      },
+      {
+        img: "http://img02.fs.yiban.cn/14362600/avatar/user/200",
+        name: " 辽宁铁道职业技术学院 ",
+        url: "http://www.yiban.cn/school/index/id/14362600"
+      },
+      {
+        img: "http://img02.fs.yiban.cn/5370525/avatar/user/200",
+        name: " 大连理工大学 ",
+        url: "http://www.yiban.cn/school/index/id/5370525"
+      },
+      {
+        img: "http://img02.fs.yiban.cn/14362550/avatar/user/200",
+        name: " 辽宁轨道交通职业学院 ",
+        url: "http://www.yiban.cn/school/index/id/14362550"
+      },
+      {
+        img: "http://img02.fs.yiban.cn/14735866/avatar/user/200",
+        name: " 大连交通大学 ",
+        url: "http://www.yiban.cn/school/index/id/14735866"
+      },
+      {
+        img: "http://img02.fs.yiban.cn/13875458/avatar/user/200",
+        name: " 沈阳体育学院 ",
+        url: "http://www.yiban.cn/school/index/id/13875458"
+      },
+      {
+        img: "http://img02.fs.yiban.cn/5375786/avatar/user/200",
+        name: " 东北大学 ",
+        url: "http://www.yiban.cn/school/index/id/5375786"
+      },
+      {
+        img: "http://img02.fs.yiban.cn/5387113/avatar/user/200",
+        name: " 辽宁科技学院 ",
+        url: "http://www.yiban.cn/school/index/id/5387113"
+      },
+      {
+        img: "http://img02.fs.yiban.cn/5421099/avatar/user/200",
+        name: " 大连海事大学 ",
+        url: "http://www.yiban.cn/school/index/id/5421099"
+      },
+      {
+        img: "http://img02.fs.yiban.cn/14654764/avatar/user/200",
+        name: " 辽宁大学 ",
+        url: "http://www.yiban.cn/school/index/id/14654764"
+      },
+      {
+        img: "http://img02.fs.yiban.cn/5387120/avatar/user/200",
+        name: " 东北财经大学 ",
+        url: "http://www.yiban.cn/school/index/id/5387120"
+      }
+    ];
+  </script>
+
+
+  <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>" type="text/javascript"></script>
+  <% } %>
 </body>
+
 </html>
